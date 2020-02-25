@@ -1,7 +1,7 @@
 ---
 title: Flu in the United States 2019
 ---
-```
+```{r}
 url3 <- "https://raw.githubusercontent.com/lglang/Datasets/master/Flu2019-2020.csv"
 download.file(url3, "Flu2019")
 flu_df <- read_csv("Flu2019")
@@ -18,7 +18,7 @@ ggplot(data = flu_df)+
 ```
 The first graph is a basic point graph describing the trend of total cases of influenza A and B over the year. It shows a trend of cases starting relatively high, dropping through the mid year, and starting to rise again at the end of the year - consistent with the idea of a "flu season". The second graph is a box plot that shows the distribution of cases in 2019 and the start of 2020. It's interesting that the cases in 2020 are already higher than the cases at the same time for 2019.
 
-```
+```{r}
 flu_type <- flu_df %>% select(Week, INF_A, INF_B, ALL_INF, Year) %>% 
   mutate(InfA_Per = (INF_A/ALL_INF)*100) %>% mutate(InfB_Per = (INF_B/ALL_INF)*100)
 
@@ -34,7 +34,7 @@ ggplot(data = flu_type)+
 ```
 This is a comparison of Influenza A and B between 2019 and 2020. The spike in cases of influenza B at the end of 2019 appears to be dropping at the beginning of 2020, but it is still much higher than the cases a year previously. Meanwhile, cases of influenza A are lower than they were, but it becomes more obvious as to how the combination of the two give a larger volume of flu cases in 2020 than 2019. I also calculated the mean percentage of flu A and B, though I have yet to utilize the data.
 
-```
+```{r}
 flu_subA <- flu_df %>% select(INF_A, AH1, AH1N12009, AH3, AH5, ANOTSUBTYPED,Week) 
 
 ggplot(data = flu_subA)+
