@@ -6,8 +6,8 @@ url3 <- "https://raw.githubusercontent.com/lglang/Datasets/master/Flu2019-2020.c
 download.file(url3, "Flu2019")
 flu_df <- read_csv("Flu2019")
 
-ggplot(data = flu_df) + 
-  geom_point(mapping = aes(Week, ALL_INF)) +
+ggplot(data = flu_df)+ 
+  geom_point(mapping = aes(Week, ALL_INF))+
   labs(x = "Week in the year",
        y = "Positive cases of Influenza")
 
